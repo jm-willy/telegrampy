@@ -1,0 +1,15 @@
+api_id: 
+api_hash: ''
+session_name: 'reenvio'
+
+input_channel_names:
+  - 'Nombre canal entrada'
+
+output_channel_names: 
+  - 'Nombre canal salida'
+
+input_channel_ids:
+  - ID
+
+output_channel_ids: 
+  - ID
