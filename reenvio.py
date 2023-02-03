@@ -4,6 +4,12 @@ import yaml
 import sys
 import logging
 
+# texto a reemplezar
+find = '@example_1'
+# texto que sustituye el anterior
+replace = '@lucas 1'
+
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logging.getLogger('telethon').setLevel(level=logging.WARNING)
 logger = logging.getLogger(__name__)
@@ -35,8 +41,10 @@ def start(config):
     
     @client.on(events.NewMessage(chats=input_channels_entities))
     async def handler(event):
+        msg = event.message
+        msg.replace(find, replace) # python hace todo el trabajo con replace()
         for output_channel in output_channel_entities:
-            await client.forward_messages(output_channel, event.message)
+            await client.forward_messages(output_channel, msg)
 
     client.run_until_disconnected()
 
