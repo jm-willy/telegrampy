@@ -43,7 +43,7 @@ def start(config):
     async def handler(event):
         msg = event.message.message
         msg.replace(find, replace) # python hace todo el trabajo con replace()
-        event.message.message = msg
+        event.message.text = msg
         for output_channel in output_channel_entities:
             await client.forward_messages(output_channel, event.message)
 
